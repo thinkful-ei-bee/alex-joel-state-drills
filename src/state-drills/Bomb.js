@@ -5,7 +5,7 @@ class Bomb extends React.Component {
     super(props)
     this.state = { 
       count: 0, 
-      timer: 3
+      timer: 15
     };
   }
   componentDidMount() {
