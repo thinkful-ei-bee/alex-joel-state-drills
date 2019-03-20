@@ -5,7 +5,7 @@ class Bomb extends React.Component {
     super(props)
     this.state = { 
       count: 0, 
-      timer: 15
+      timer: 8
     };
   }
   componentDidMount() {
@@ -18,7 +18,7 @@ class Bomb extends React.Component {
     }, 1000)
   }
   componentWillUnmount() {
-    clearInterval(this.count)
+    clearInterval(this.interval)
   }
   render() {
     if (this.state.count % 2 === 0 && this.state.count < this.state.timer) {
@@ -28,6 +28,7 @@ class Bomb extends React.Component {
       return (<div><p>tock</p></div>);
     }
     if (this.state.count >= this.state.timer) {
+      clearInterval(this.interval)
       return (<div><p>BOOM!</p></div>);
     }
   }
