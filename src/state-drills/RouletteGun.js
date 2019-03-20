@@ -40,13 +40,13 @@ class RouletteGun extends React.Component {
         spinningTheChamber: !this.state.spinningTheChamber
       })
       
-      if(this.random === this.state.chamber) {
+      if(this.random === this.props.bulletInChamber) {
         this.setState({
           message: "Bang!!!",
           spinningTheChamber: false
         })
       }
-      if(this.random !== this.state.chamber) {
+      if(this.random !== this.props.bulletInChamber) {
         this.setState({
           message: "you're safe!",
           spinningTheChamber: false
