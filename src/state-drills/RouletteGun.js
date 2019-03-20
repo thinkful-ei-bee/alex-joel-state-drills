@@ -13,12 +13,6 @@ class RouletteGun extends React.Component {
       spinningTheChamber: false
     };
   }
-  // componentDidMount() {
-  //   this.setState({
-  //     chamber: this.props.bulletInChamber,
-  //     message: this.props.message
-  //   })
-  // }
   componentWillUnmount() {
     clearTimeout(this.timeout);
   }
@@ -32,7 +26,6 @@ class RouletteGun extends React.Component {
     
     let timeout = setTimeout(() => {
       let random = Math.ceil(Math.random() * 8);
-      console.log(`You spun the chamber to: ${random}; state.chamber: ${this.state.chamber}`)
       
       this.setState({
         message: "spinning the chamber and pulling the trigger! ...",
@@ -40,18 +33,19 @@ class RouletteGun extends React.Component {
         spinningTheChamber: !this.state.spinningTheChamber
       })
       
-      if(this.random === this.props.bulletInChamber) {
+      if(this.state.chamber === this.props.bulletInChamber) {
         this.setState({
           message: "Bang!!!",
           spinningTheChamber: false
         })
       }
-      if(this.random !== this.props.bulletInChamber) {
+      if(this.state.chamber !== this.props.bulletInChamber) {
         this.setState({
           message: "you're safe!",
           spinningTheChamber: false
         })
       }
+      console.log(`You spun the chamber to: ${this.state.chamber}; state.chamber: ${this.props.bulletInChamber}`)
     }, 2000);
     
   }
