@@ -13,12 +13,12 @@ class RouletteGun extends React.Component {
       spinningTheChamber: false
     };
   }
-  componentDidMount() {
-    this.setState({
-      chamber: this.props.bulletInChamber,
-      message: this.props.message
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     chamber: this.props.bulletInChamber,
+  //     message: this.props.message
+  //   })
+  // }
   componentWillUnmount() {
     clearTimeout(this.timeout);
   }
@@ -39,7 +39,7 @@ class RouletteGun extends React.Component {
         chamber: random,
         spinningTheChamber: !this.state.spinningTheChamber
       })
-
+      
       if(this.random === this.state.chamber) {
         this.setState({
           message: "Bang!!!",

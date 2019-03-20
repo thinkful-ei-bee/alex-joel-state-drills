@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App">
         <HelloWOrld />
         <Bomb />
-        <RouletteGun bulletInChamber={5} />
+        <RouletteGun />
       </div>
     );
   }
