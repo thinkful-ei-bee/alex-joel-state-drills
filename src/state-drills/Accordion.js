@@ -16,17 +16,24 @@ class Accordion extends Component{
     render(){
         const thisSection = this.state.currSection;
         //console.log(this.props.sections);
-        const listItems = this.props.sections.map((section,index)=>
+        let listItems;
+        if(this.props.sections===undefined){
+            listItems='';
+        }
+        else{
+            listItems = this.props.sections.map((section,index)=>
                 (
-                    <li>
+                    <li key={index}>
                         <button onClick={() => this.handleButtonClick(index)}>
                             {section.title}
                         </button>
                         {thisSection===index && <p>{section.content}</p>}
                     </li>
                 ))
+        }
+        
         return(
-            <ul className=''>
+            <ul className='listOfSections'>
                {listItems}
             </ul>
         )
