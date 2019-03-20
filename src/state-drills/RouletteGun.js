@@ -20,7 +20,7 @@ class RouletteGun extends React.Component {
     })
   }
   componentWillUnmount() {
-    // clear time out here
+    clearTimeout(this.timeout);
   }
   handleButtonClick = () => {
   
@@ -30,7 +30,7 @@ class RouletteGun extends React.Component {
       spinningTheChamber: true
     })
     
-    setTimeout(() => {
+    let timeout = setTimeout(() => {
       let random = Math.ceil(Math.random() * 8);
       console.log(`You spun the chamber to: ${random}; state.chamber: ${this.state.chamber}`)
       
@@ -40,13 +40,13 @@ class RouletteGun extends React.Component {
         spinningTheChamber: !this.state.spinningTheChamber
       })
 
-      if(random === this.state.chamber) {
+      if(this.random === this.state.chamber) {
         this.setState({
           message: "Bang!!!",
           spinningTheChamber: false
         })
       }
-      if(random !== this.state.chamber) {
+      if(this.random !== this.state.chamber) {
         this.setState({
           message: "you're safe!",
           spinningTheChamber: false
