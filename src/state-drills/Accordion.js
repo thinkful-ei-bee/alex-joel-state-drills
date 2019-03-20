@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Accordion.css';
 
 class Accordion extends Component{
 
